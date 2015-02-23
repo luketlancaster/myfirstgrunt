@@ -1,0 +1,23 @@
+{
+  "name": "myfirstgrunt",
+  "version": "1.0.0",
+  "description": "Playing with grunt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luketlancaster/myfirstgrunt.git"
+  },
+  "author": "luke <luketlancaster@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luketlancaster/myfirstgrunt/issues"
+  },
+  "homepage": "https://github.com/luketlancaster/myfirstgrunt",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0"
+  }
+}
