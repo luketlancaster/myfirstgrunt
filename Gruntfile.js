@@ -5,6 +5,13 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    watch: {
+      files: ['app/**', '!**/*_.jade'],
+      tasks: ['build'],
+      options: {
+        spawn: false,
+      },
+    },
     clean: ['public'],
     copy: {
       main: {
@@ -31,5 +38,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', []);
-  grunt.registerTask('build', ['clean', 'copy', 'jade', 'sass']);
+  grunt.registerTask('build', ['clean', 'copy', 'jade', 'sass', 'watch']);
 };
