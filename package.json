@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/luketlancaster/myfirstgrunt",
   "devDependencies": {
+    "caniuse-db": "^1.0.30000079",
     "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^2.2.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jade": "^0.14.1",

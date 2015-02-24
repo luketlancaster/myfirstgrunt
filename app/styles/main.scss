@@ -5,5 +5,15 @@ h1 {
 }
 
 h2 {
-	color: red;
+  color: red;
+}
+
+h4 {
+  color: green;
+  filter: blur(2px);
+}
+
+img {
+  filter: saturate(20);
+  width: 400px;
 }
