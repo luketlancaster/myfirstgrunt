@@ -29,9 +29,11 @@ module.exports = function(grunt) {
       }
     },
     autoprefixer: {
-      single_file: {
-        src: 'public/**/*.css',
-        dest: 'public/css/main.css'
+      options: {
+        browsers: ['> 1% in US']
+      },
+      build: {
+        src: 'public/css/**.css'
       }
     },
     watch: {
@@ -45,8 +47,8 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ['app/**/*.{sass,scss}'],
-        tasks: ['sass']
-      }
+        tasks: ['sass', 'autoprefixer']
+      },
     }
   });
 
