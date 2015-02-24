@@ -5,7 +5,9 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+
     clean: ['public'],
+
     copy: {
       main: {
         files: [
@@ -13,11 +15,16 @@ module.exports = function(grunt) {
         ]
       }
     },
+
     jade: {
       compile: {
+        options: {
+          pretty: true
+        },
         files: [{expand: true, cwd: 'app/', src: ['**/*.jade', '!**/_*.jade'], dest: 'public/', ext: '.html'}]
       }
     },
+
     sass: {
       options: {
         sourceMap: true
@@ -28,6 +35,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     autoprefixer: {
       options: {
         browsers: ['> 1% in US']
@@ -36,7 +44,12 @@ module.exports = function(grunt) {
         src: 'public/css/**.css'
       }
     },
+
     watch: {
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep']
+      },
       other: {
         files: ['app/**', '!app/**/*.jade', '!app/**/*.{sass,scss}'],
         tasks: ['copy']
@@ -48,12 +61,18 @@ module.exports = function(grunt) {
       sass: {
         files: ['app/**/*.{sass,scss}'],
         tasks: ['sass', 'autoprefixer']
-      },
+      }
+    },
+
+    wiredep: {
+      build: {
+        src: ['public/**/*.html']
+      }
     }
   });
 
   grunt.registerTask('default', []);
-  grunt.registerTask('build', ['clean', 'copy', 'jade', 'sass', 'autoprefixer']);
+  grunt.registerTask('build', ['clean', 'copy', 'jade', 'sass', 'autoprefixer', 'wiredep']);
   grunt.registerTask('serve', ['build', 'watch']);
 };
 
